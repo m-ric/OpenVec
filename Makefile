@@ -46,9 +46,9 @@ OMP_FLAGS=-openmp
 
 else # ARM neon
 ifeq ($(arch),neon)
-CC=gcc -std=c99
-CPP=g++
-CFLAGS=-Wall -O3 -mfpu=neon -mtune=cortex-a9 -mcpu=cortex-a9
+CC=arm-linux-androideabi-gcc -std=c99
+CPP=arm-linux-androideabi-g++
+CFLAGS=-Wall -O3 -mfloat-abi=softfp -mfpu=neon -mtune=cortex-a9 -mcpu=cortex-a9 -pie
 OMP_FLAGS=
 
 else # GCC AVX
